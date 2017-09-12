@@ -17,6 +17,14 @@ class CharacterTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    var character: Character? {
+        didSet{
+            guard let character = character else { return }
+            affiliationImageView.image = UIImage(named: character.affiliationString!)
+            nameLabel.text = character.firstName! + " " + character.lastName!
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

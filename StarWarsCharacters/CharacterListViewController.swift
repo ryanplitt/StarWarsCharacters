@@ -28,7 +28,7 @@ class CharacterListViewController: UIViewController {
         let dataSource = DATASource(tableView: self.tableView, cellIdentifier: "characterCell", fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>, mainContext: self.dataStack.mainContext, configuration: { (cell, managedObject, indexPath) in
             guard let character = managedObject as? Character,
             let cell = cell as? CharacterTableViewCell else { return }
-            cell.nameLabel.text = character.firstName! + " " + character.lastName!
+            cell.character = character
         })
         
         return dataSource

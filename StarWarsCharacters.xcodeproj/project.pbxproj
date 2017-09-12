@@ -16,6 +16,7 @@
 		FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */; };
 		FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */; };
 		FB292A501F681C46009EB7A7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB292A4D1F681475009EB7A7 /* Model.xcdatamodeld */; };
+		FBC079B51F684142006E1098 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC079B41F684142006E1098 /* Character+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		FB292A4E1F681475009EB7A7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FBC079B41F684142006E1098 /* Character+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				FB292A2F1F68089E009EB7A7 /* AppDelegate.swift */,
+				FBC079B41F684142006E1098 /* Character+Extension.swift */,
 				FB292A4D1F681475009EB7A7 /* Model.xcdatamodeld */,
 				FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */,
 				FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB292A301F68089E009EB7A7 /* AppDelegate.swift in Sources */,
+				FBC079B51F684142006E1098 /* Character+Extension.swift in Sources */,
 				FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */,
 				FB292A501F681C46009EB7A7 /* Model.xcdatamodeld in Sources */,
 				FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */,
