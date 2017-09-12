@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		E192552DDF5A3980EE1BCE73 /* Pods_StarWarsCharacters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8971B26E6862863A3232B50 /* Pods_StarWarsCharacters.framework */; };
 		FB292A301F68089E009EB7A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A2F1F68089E009EB7A7 /* AppDelegate.swift */; };
-		FB292A321F68089E009EB7A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A311F68089E009EB7A7 /* ViewController.swift */; };
 		FB292A351F68089E009EB7A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB292A331F68089E009EB7A7 /* Main.storyboard */; };
 		FB292A371F68089E009EB7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB292A361F68089E009EB7A7 /* Assets.xcassets */; };
 		FB292A3A1F68089E009EB7A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB292A381F68089E009EB7A7 /* LaunchScreen.storyboard */; };
+		FB292A451F6811C6009EB7A7 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A431F6811C6009EB7A7 /* CharacterTableViewCell.swift */; };
+		FB292A461F6811C6009EB7A7 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB292A441F6811C6009EB7A7 /* CharacterTableViewCell.xib */; };
+		FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */; };
+		FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		F8971B26E6862863A3232B50 /* Pods_StarWarsCharacters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsCharacters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB292A2C1F68089E009EB7A7 /* StarWarsCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWarsCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB292A2F1F68089E009EB7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB292A311F68089E009EB7A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB292A341F68089E009EB7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB292A361F68089E009EB7A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB292A391F68089E009EB7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB292A3B1F68089E009EB7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB292A431F6811C6009EB7A7 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		FB292A441F6811C6009EB7A7 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +85,32 @@
 			isa = PBXGroup;
 			children = (
 				FB292A2F1F68089E009EB7A7 /* AppDelegate.swift */,
-				FB292A311F68089E009EB7A7 /* ViewController.swift */,
-				FB292A331F68089E009EB7A7 /* Main.storyboard */,
+				FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */,
+				FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */,
+				FB292A431F6811C6009EB7A7 /* CharacterTableViewCell.swift */,
+				FB292A441F6811C6009EB7A7 /* CharacterTableViewCell.xib */,
+				FB292A421F681120009EB7A7 /* Storyboards */,
+				FB292A411F681009009EB7A7 /* Resources */,
+			);
+			path = StarWarsCharacters;
+			sourceTree = "<group>";
+		};
+		FB292A411F681009009EB7A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				FB292A361F68089E009EB7A7 /* Assets.xcassets */,
 				FB292A381F68089E009EB7A7 /* LaunchScreen.storyboard */,
 				FB292A3B1F68089E009EB7A7 /* Info.plist */,
 			);
-			path = StarWarsCharacters;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FB292A421F681120009EB7A7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FB292A331F68089E009EB7A7 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +179,7 @@
 				FB292A3A1F68089E009EB7A7 /* LaunchScreen.storyboard in Resources */,
 				FB292A371F68089E009EB7A7 /* Assets.xcassets in Resources */,
 				FB292A351F68089E009EB7A7 /* Main.storyboard in Resources */,
+				FB292A461F6811C6009EB7A7 /* CharacterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB292A321F68089E009EB7A7 /* ViewController.swift in Sources */,
 				FB292A301F68089E009EB7A7 /* AppDelegate.swift in Sources */,
+				FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */,
+				FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */,
+				FB292A451F6811C6009EB7A7 /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +409,7 @@
 				FB292A401F68089E009EB7A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
