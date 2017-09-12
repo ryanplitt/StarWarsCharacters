@@ -10,7 +10,8 @@ import UIKit
 
 class CharacterTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var affiliationImageView: UIImageView!
+
+    @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -21,7 +22,6 @@ class CharacterTableViewCell: UITableViewCell {
     var character: Character? {
         didSet{
             guard let character = character else { return }
-            affiliationImageView.image = UIImage(named: character.affiliationString!)
             nameLabel.text = character.firstName! + " " + character.lastName!
         }
     }

@@ -57,7 +57,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="affiliationImageView" destination="r07-XC-GoY" id="LuF-Qs-ipN"/>
+                                            <outlet property="characterImageView" destination="r07-XC-GoY" id="alK-zC-A6M"/>
                                             <outlet property="nameLabel" destination="Bf1-Dw-JUk" id="OKQ-Ex-hbw"/>
                                         </connections>
                                     </tableViewCell>

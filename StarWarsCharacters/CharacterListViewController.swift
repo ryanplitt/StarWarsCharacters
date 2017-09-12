@@ -10,6 +10,7 @@ import UIKit
 import Sync
 import CoreData
 import DATASource
+import Kingfisher
 
 
 class CharacterListViewController: UIViewController, UITableViewDelegate {
@@ -27,8 +28,10 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
         
         let dataSource = DATASource(tableView: self.tableView, cellIdentifier: "characterCell", fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>, mainContext: self.dataStack.mainContext, configuration: { (cell, managedObject, indexPath) in
             guard let character = managedObject as? Character,
-            let cell = cell as? CharacterTableViewCell else { return }
+            let cell = cell as? CharacterTableViewCell,
+                let imageURL = URL(string: character.profilePictureLink!) else { return }
             cell.character = character
+            cell.characterImageView.kf.setImage(with: imageURL)
         })
         
         return dataSource
