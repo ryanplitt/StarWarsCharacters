@@ -9,5 +9,8 @@ target 'StarWarsCharacters' do
 
   pod 'CBStoreHouseRefreshControl'
   pod 'Sync', '~> 3'
+  pod 'DATASource', '~> 6'
+  pod 'Kingfisher', '~> 3.0'
+  pod 'Hero'
 
 end
