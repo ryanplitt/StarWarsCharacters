@@ -10,7 +10,6 @@ import Foundation
 
 extension Character {
     
-    
     enum Affiliation: String {
         case resistance = "RESISTANCE"
         case jedi = "JEDI"

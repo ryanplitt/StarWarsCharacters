@@ -12,7 +12,7 @@ import CoreData
 import DATASource
 
 
-class CharacterListViewController: UIViewController {
+class CharacterListViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,6 +37,7 @@ class CharacterListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = dataSource
+        tableView.delegate = self
         fetchNewData()
     }
     
@@ -58,6 +59,10 @@ class CharacterListViewController: UIViewController {
         }
         
         data.resume()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
     

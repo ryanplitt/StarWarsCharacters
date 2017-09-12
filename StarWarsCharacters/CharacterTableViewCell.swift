@@ -15,8 +15,8 @@ class CharacterTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
     
     var character: Character? {
         didSet{
