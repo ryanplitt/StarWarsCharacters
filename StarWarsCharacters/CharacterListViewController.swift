@@ -31,6 +31,8 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
             let cell = cell as? CharacterTableViewCell,
                 let imageURL = URL(string: character.profilePictureLink!) else { return }
             cell.character = character
+            
+            cell.characterImageView.kf.indicatorType = .activity
             cell.characterImageView.kf.setImage(with: imageURL)
         })
         
