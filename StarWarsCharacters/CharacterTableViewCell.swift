@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class CharacterTableViewCell: UITableViewCell {
 
@@ -23,6 +24,8 @@ class CharacterTableViewCell: UITableViewCell {
         didSet{
             guard let character = character else { return }
             nameLabel.text = character.firstName! + " " + character.lastName!
+            characterImageView.heroID = character.profilePictureLink!
+            nameLabel.heroID = character.firstName!+character.lastName!
         }
     }
 
