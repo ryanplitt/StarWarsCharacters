@@ -43,22 +43,25 @@ class CharacterDetailViewController: UIViewController {
     
     private func setupView(for character: Character) {
         
-        guard let imageURL = URL(string: character.profilePictureLink!) else { return }
+        guard let imageURL = URL(string: character.profilePictureLink ?? ""),
+        let firstName = character.firstName,
+        let lastName = character.lastName,
+        let birthday = character.birthdate else { return }
         
         //Profile Image
         mainBackgroundImage.kf.setImage(with: imageURL)
-        mainBackgroundImage.heroID = character.profilePictureLink!
+        mainBackgroundImage.heroID = character.profilePictureLink ?? ""
         
         //Name
-        nameLabel.text = character.firstName! + " " + character.lastName!
-        nameLabel.heroID = character.firstName!+character.lastName!
+        nameLabel.text = firstName + " " + lastName
+        nameLabel.heroID = firstName+lastName
         
         //Affiliation Image
-        affiliationImageView.image = UIImage(named: character.affiliationString!)
+        affiliationImageView.image = UIImage(named: character.affiliationString ?? "")
         affiliationImageView.heroModifiers = [.fade, .translate(x: 0, y: 150, z: 0), .duration(0.6)]
         
         //Birthday Label
-        birthdayLabel.text = "Birthday: \(dateFormatter.string(from: character.birthdate! as Date))"
+        birthdayLabel.text = "Birthday: \(dateFormatter.string(from: birthday as Date))"
         birthdayLabel.heroModifiers = [.translate(x: 0, y: 100, z: 0)]
         
         //Affiliation Label

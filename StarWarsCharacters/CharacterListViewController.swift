@@ -33,7 +33,7 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
         let dataSource = DATASource(tableView: self.tableView, cellIdentifier: "characterCell", fetchRequest: request as! NSFetchRequest<NSFetchRequestResult>, mainContext: self.dataStack.mainContext, configuration: { (cell, managedObject, indexPath) in
             guard let character = managedObject as? Character,
             let cell = cell as? CharacterTableViewCell,
-                let imageURL = URL(string: character.profilePictureLink!) else { return }
+                let imageURL = URL(string: character.profilePictureLink ?? "") else { return }
             cell.character = character
             
             cell.characterImageView.kf.indicatorType = .activity
@@ -46,7 +46,7 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = dataSource
-        tableView.delegate = self
+        tableView.rowHeight = 90
         fetchNewData()
         
         // add pull-to-refresh
@@ -75,15 +75,14 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
             }
             
             guard let data = data,
-                let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],
-                let arrayOfCharacters = jsonDictionary["individuals"] as? [[String : Any]] else { print("Unable to parse data."); return }
+                let jsonDictionary = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],
+                let arrayOfCharacters = jsonDictionary?["individuals"] as? [[String : Any]] else { print("Unable to parse data."); return }
             
             // Use Sync to sync the changes between the json (arrayOfCharacters) and what is currently in core data. The completion will fire when new entries have been added, old entries have been deleted, and existing entries have been modified (if any). Our DATASource (FetchedResultsController) will take care of the rest for updating the tableView appropriately.
             
             Sync.changes(arrayOfCharacters, inEntityNamed: "Character", dataStack: self.dataStack, completion: { (error) in
                 if let error = error {
-                    print("There was an error syncing the changes: \n\(error.localizedDescription)")
-                    print(error)
+                    NSLog("There was a error syncing the changes. \n %@", error)
                 }
                 self.cbRefreshControl.finishingLoading()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -94,10 +93,6 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
     }
     
     // MARK: - TableViewDelegate / ScrollViewDelegate
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         cbRefreshControl.scrollViewDidEndDragging()

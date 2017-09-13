@@ -21,12 +21,14 @@ class CharacterTableViewCell: UITableViewCell {
     
     var character: Character? {
         didSet{
-            guard let character = character else { return }
-            nameLabel.text = character.firstName! + " " + character.lastName!
+            guard let character = character,
+                let firstName = character.firstName,
+                let lastName = character.lastName else { return }
+            nameLabel.text = firstName + " " + lastName
             
             // set Hero ID's so that it knows how to transition to the matching ID in the CharacterDetailViewController
-            characterImageView.heroID = character.profilePictureLink!
-            nameLabel.heroID = character.firstName!+character.lastName!
+            characterImageView.heroID = character.profilePictureLink ?? ""
+            nameLabel.heroID = firstName+lastName
         }
     }
 }
