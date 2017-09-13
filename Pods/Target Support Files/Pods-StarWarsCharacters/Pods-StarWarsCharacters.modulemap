@@ -1,0 +1,6 @@
+framework module Pods_StarWarsCharacters {
+  umbrella header "Pods-StarWarsCharacters-umbrella.h"
+
+  export *
+  module * { export * }
+}
