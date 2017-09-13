@@ -116,13 +116,18 @@
                                     <constraint firstAttribute="width" secondItem="ehO-yd-76m" secondAttribute="height" multiplier="1:1" id="64a-Tn-QqV"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-pt-BX5">
-                                <rect key="frame" x="16" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-pt-BX5">
+                                <rect key="frame" x="20" y="24" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2xv-x7-aoJ"/>
+                                    <constraint firstAttribute="width" constant="40" id="B9O-6i-jFV"/>
+                                </constraints>
+                                <state key="normal" image="downArrow"/>
+                                <connections>
+                                    <action selector="downArrowTapped:" destination="2ML-2c-K5y" eventType="touchUpInside" id="fYV-nO-NKN"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bCO-j4-ed2" firstAttribute="trailing" secondItem="RS3-IZ-6DJ" secondAttribute="trailingMargin" id="0hx-HF-LXH"/>
                             <constraint firstItem="bCO-j4-ed2" firstAttribute="height" secondItem="RS3-IZ-6DJ" secondAttribute="height" multiplier="4/7" id="1vG-Vu-YFS"/>
@@ -132,7 +137,9 @@
                             <constraint firstItem="bCO-j4-ed2" firstAttribute="centerX" secondItem="RS3-IZ-6DJ" secondAttribute="centerX" id="Kgp-EL-ukp"/>
                             <constraint firstItem="bCO-j4-ed2" firstAttribute="top" secondItem="dm3-JH-909" secondAttribute="bottom" constant="50" id="LGZ-wA-aJz"/>
                             <constraint firstItem="1RG-8p-Bxh" firstAttribute="top" secondItem="ehO-yd-76m" secondAttribute="bottom" id="Lwx-uo-HjZ"/>
+                            <constraint firstItem="dBa-pt-BX5" firstAttribute="top" secondItem="dm3-JH-909" secondAttribute="bottom" constant="4" id="aJL-zW-vbc"/>
                             <constraint firstItem="ehO-yd-76m" firstAttribute="centerX" secondItem="RS3-IZ-6DJ" secondAttribute="centerX" multiplier="0.2" id="aRJ-dn-HGw"/>
+                            <constraint firstItem="dBa-pt-BX5" firstAttribute="leading" secondItem="RS3-IZ-6DJ" secondAttribute="leadingMargin" constant="4" id="iz1-JA-9ub"/>
                             <constraint firstItem="vVg-l2-FP6" firstAttribute="top" secondItem="bCO-j4-ed2" secondAttribute="bottom" constant="20" id="urm-8V-Iys"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vVg-l2-FP6" secondAttribute="trailing" constant="8" id="yEo-GQ-edv"/>
                         </constraints>
@@ -169,4 +176,7 @@
             <point key="canvasLocation" x="1016.8" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="downArrow" width="25" height="25"/>
+    </resources>
 </document>

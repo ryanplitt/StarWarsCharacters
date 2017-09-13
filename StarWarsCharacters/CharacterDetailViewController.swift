@@ -28,7 +28,8 @@ class CharacterDetailViewController: UIViewController {
             nameLabel.text = character.firstName! + " " + character.lastName!
             nameLabel.heroID = character.firstName!+character.lastName!
             affiliationImageView.image = UIImage(named: character.affiliationString!)
-            affiliationImageView.heroModifiers = [.fade, .translate(x: 0, y: 300, z: 0)]
+            affiliationImageView.heroModifiers = [.fade, .translate(x: 0, y: 150, z: 0), .duration(0.6)]
+            view.heroModifiers = [.fade]
         }
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)))
@@ -55,8 +56,6 @@ class CharacterDetailViewController: UIViewController {
             
             // update views' position (limited to only vertical scroll)
             Hero.shared.apply(modifiers: [.position(CGPoint(x:mainBackgroundImage.center.x, y:translation.y + mainBackgroundImage.center.y))], to: mainBackgroundImage)
-//            Hero.shared.apply(modifiers: [.position(CGPoint(x:nameLabel.center.x, y:translation.y + nameLabel.center.y))], to: nameLabel)
-//            Hero.shared.apply(modifiers: [.position(CGPoint(x:descriptionLabel.center.x, y:translation.y + descriptionLabel.center.y))], to: descriptionLabel)
         default:
             // end or cancel the transition based on the progress and user's touch velocity
             if progress + panGestureRecognizer.velocity(in: nil).y / view.bounds.height > 0.3 {
@@ -67,15 +66,7 @@ class CharacterDetailViewController: UIViewController {
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func downArrowTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
 }

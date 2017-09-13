@@ -46,6 +46,12 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
         fetchNewData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        if let index = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: index, animated: false)
+        }
+    }
+    
     
     func fetchNewData() {
         let url = URL(string: "https://edge.ldscdn.org/mobile/interview/directory")!
