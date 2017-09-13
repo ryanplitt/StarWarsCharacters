@@ -19,19 +19,14 @@ class CharacterTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    
     var character: Character? {
         didSet{
             guard let character = character else { return }
             nameLabel.text = character.firstName! + " " + character.lastName!
+            
+            // set Hero ID's so that it knows how to transition to the matching ID in the CharacterDetailViewController
             characterImageView.heroID = character.profilePictureLink!
             nameLabel.heroID = character.firstName!+character.lastName!
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Character+Extension.swift
+//  Character+Affiliation.swift
 //  StarWarsCharacters
 //
 //  Created by Ryan Plitt on 9/12/17.

@@ -23,9 +23,7 @@ class CharacterDetailViewController: UIViewController {
     var panGestureRecognizer: UIPanGestureRecognizer!
     
     let dateFormatter: DateFormatter = {
-        
         let formatter = DateFormatter()
-        
         formatter.dateStyle = .medium
         
         return formatter
@@ -80,6 +78,7 @@ class CharacterDetailViewController: UIViewController {
     }
 
     func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
+        
         // calculate the progress based on how far the user moved
         let translation = panGestureRecognizer.translation(in: nil)
         let progress = translation.y / 2 / view.bounds.height

@@ -16,7 +16,7 @@
 		FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */; };
 		FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */; };
 		FB292A501F681C46009EB7A7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB292A4D1F681475009EB7A7 /* Model.xcdatamodeld */; };
-		FBC079B51F684142006E1098 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC079B41F684142006E1098 /* Character+Extension.swift */; };
+		FBC079B51F684142006E1098 /* Character+Affiliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC079B41F684142006E1098 /* Character+Affiliation.swift */; };
 		FBF6135C1F6987B900B50BE5 /* tieFighter.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBF6135B1F6987B900B50BE5 /* tieFighter.plist */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		FB292A4E1F681475009EB7A7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		FBC079B41F684142006E1098 /* Character+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
+		FBC079B41F684142006E1098 /* Character+Affiliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Affiliation.swift"; sourceTree = "<group>"; };
 		FBF6135B1F6987B900B50BE5 /* tieFighter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tieFighter.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,11 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				FB292A2F1F68089E009EB7A7 /* AppDelegate.swift */,
-				FBC079B41F684142006E1098 /* Character+Extension.swift */,
-				FB292A4D1F681475009EB7A7 /* Model.xcdatamodeld */,
-				FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */,
-				FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */,
-				FB292A431F6811C6009EB7A7 /* CharacterTableViewCell.swift */,
+				FBF6135D1F69A20000B50BE5 /* Models */,
+				FBF6135E1F69A21200B50BE5 /* View Controllers */,
+				FBF6135F1F69A21A00B50BE5 /* Views */,
 				FB292A421F681120009EB7A7 /* Storyboards */,
 				FB292A411F681009009EB7A7 /* Resources */,
 			);
@@ -117,6 +115,32 @@
 				FB292A331F68089E009EB7A7 /* Main.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		FBF6135D1F69A20000B50BE5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB292A4D1F681475009EB7A7 /* Model.xcdatamodeld */,
+				FBC079B41F684142006E1098 /* Character+Affiliation.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FBF6135E1F69A21200B50BE5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB292A471F6813E1009EB7A7 /* CharacterListViewController.swift */,
+				FB292A491F6813F7009EB7A7 /* CharacterDetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FBF6135F1F69A21A00B50BE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB292A431F6811C6009EB7A7 /* CharacterTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB292A301F68089E009EB7A7 /* AppDelegate.swift in Sources */,
-				FBC079B51F684142006E1098 /* Character+Extension.swift in Sources */,
+				FBC079B51F684142006E1098 /* Character+Affiliation.swift in Sources */,
 				FB292A4A1F6813F7009EB7A7 /* CharacterDetailViewController.swift in Sources */,
 				FB292A501F681C46009EB7A7 /* Model.xcdatamodeld in Sources */,
 				FB292A481F6813E1009EB7A7 /* CharacterListViewController.swift in Sources */,

@@ -24,6 +24,7 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
     
     var characters = [Character]()
     
+    // the datasource (fetchedResultsController)
     lazy var dataSource: DATASource = {
         
         let request: NSFetchRequest<Character> = Character.fetchRequest()
@@ -47,10 +48,14 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
         tableView.dataSource = dataSource
         tableView.delegate = self
         fetchNewData()
+        
+        // add pull-to-refresh
         cbRefreshControl = CBStoreHouseRefreshControl.attach(to: tableView, target: self, refreshAction: #selector(fetchNewData), plist: "tieFighter", color: .white, lineWidth: 3, dropHeight: 100, scale: 1.2, horizontalRandomness: 170, reverseLoadingAnimation: false, internalAnimationFactor: 0.3)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
+        // remove selection
         if let index = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: index, animated: false)
         }
@@ -58,18 +63,22 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
     
     
     func fetchNewData() {
-        let url = URL(string: "https://edge.ldscdn.org/mobile/interview/directory")!
+        guard let url = URL(string: "https://edge.ldscdn.org/mobile/interview/directory") else { return }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        let data = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        
+        let datatask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("There was an error fetching the data: \(error.localizedDescription)")
                 self.cbRefreshControl.finishingLoading()
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 return
             }
+            
             guard let data = data,
                 let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],
                 let arrayOfCharacters = jsonDictionary["individuals"] as? [[String : Any]] else { print("Unable to parse data."); return }
+            
+            // Use Sync to sync the changes between the json (arrayOfCharacters) and what is currently in core data. The completion will fire when new entries have been added, old entries have been deleted, and existing entries have been modified (if any). Our DATASource (FetchedResultsController) will take care of the rest for updating the tableView appropriately.
             
             Sync.changes(arrayOfCharacters, inEntityNamed: "Character", dataStack: self.dataStack, completion: { (error) in
                 if let error = error {
@@ -81,8 +90,10 @@ class CharacterListViewController: UIViewController, UITableViewDelegate, UIScro
             })
         }
         
-        data.resume()
+        datatask.resume()
     }
+    
+    // MARK: - TableViewDelegate / ScrollViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
