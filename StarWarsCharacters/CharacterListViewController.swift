@@ -11,11 +11,14 @@ import Sync
 import CoreData
 import DATASource
 import Kingfisher
+import CBStoreHouseRefreshControl
 
 
-class CharacterListViewController: UIViewController, UITableViewDelegate {
+class CharacterListViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var cbRefreshControl = CBStoreHouseRefreshControl()
     
     var dataStack: DataStack = DataStack(modelName: "Model")
     
@@ -44,6 +47,7 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.delegate = self
         fetchNewData()
+        cbRefreshControl = CBStoreHouseRefreshControl.attach(to: tableView, target: self, refreshAction: #selector(fetchNewData), plist: "tieFighter", color: .white, lineWidth: 3, dropHeight: 100, scale: 1.2, horizontalRandomness: 170, reverseLoadingAnimation: false, internalAnimationFactor: 0.3)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,8 +59,14 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
     
     func fetchNewData() {
         let url = URL(string: "https://edge.ldscdn.org/mobile/interview/directory")!
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let data = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error { print("There was an error fetching the data: \(error.localizedDescription)") ; return }
+            if let error = error {
+                print("There was an error fetching the data: \(error.localizedDescription)")
+                self.cbRefreshControl.finishingLoading()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                return
+            }
             guard let data = data,
                 let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any],
                 let arrayOfCharacters = jsonDictionary["individuals"] as? [[String : Any]] else { print("Unable to parse data."); return }
@@ -66,6 +76,8 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
                     print("There was an error syncing the changes: \n\(error.localizedDescription)")
                     print(error)
                 }
+                self.cbRefreshControl.finishingLoading()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
         }
         
@@ -73,7 +85,15 @@ class CharacterListViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 90
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        cbRefreshControl.scrollViewDidEndDragging()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        cbRefreshControl.scrollViewDidScroll()
     }
 
     

@@ -15,7 +15,7 @@
         <!--Star Wars Characters-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="StarWarsCharacters" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="StarWarsCharacters" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,24 +24,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hUB-mb-z91">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9N0-k7-2gw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="characterCell" rowHeight="50" id="eMb-9q-PrO" customClass="CharacterTableViewCell" customModule="StarWarsCharacters" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="characterCell" rowHeight="50" id="S9T-B3-eku" customClass="CharacterTableViewCell" customModule="StarWarsCharacters" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMb-9q-PrO" id="dff-Fv-wAd">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S9T-B3-eku" id="KVj-eQ-68z">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r07-XC-GoY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-wm-Ehq">
                                                     <rect key="frame" x="12" y="4" width="41.5" height="41.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="r07-XC-GoY" secondAttribute="height" multiplier="1:1" id="IFo-8j-4KV"/>
+                                                        <constraint firstAttribute="width" secondItem="W7w-wm-Ehq" secondAttribute="height" multiplier="1:1" id="WBu-8D-hXA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-Dw-JUk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIA-y6-zWm">
                                                     <rect key="frame" x="61.5" y="14.5" width="297.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -49,18 +49,18 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Bf1-Dw-JUk" secondAttribute="trailing" constant="8" id="K8t-Ll-vZk"/>
-                                                <constraint firstItem="r07-XC-GoY" firstAttribute="leading" secondItem="dff-Fv-wAd" secondAttribute="leading" constant="12" id="NEF-vp-WjI"/>
-                                                <constraint firstAttribute="bottom" secondItem="r07-XC-GoY" secondAttribute="bottom" constant="4" id="iYK-G0-QaT"/>
-                                                <constraint firstItem="r07-XC-GoY" firstAttribute="top" secondItem="dff-Fv-wAd" secondAttribute="top" constant="4" id="jkM-aF-c9x"/>
-                                                <constraint firstItem="Bf1-Dw-JUk" firstAttribute="centerY" secondItem="dff-Fv-wAd" secondAttribute="centerY" id="y1m-CR-wZ1"/>
-                                                <constraint firstItem="Bf1-Dw-JUk" firstAttribute="leading" secondItem="r07-XC-GoY" secondAttribute="trailing" constant="8" id="zRg-L3-Owr"/>
+                                                <constraint firstItem="W7w-wm-Ehq" firstAttribute="top" secondItem="KVj-eQ-68z" secondAttribute="top" constant="4" id="8XO-aX-4o8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nIA-y6-zWm" secondAttribute="trailing" constant="8" id="DQ5-le-z3G"/>
+                                                <constraint firstAttribute="bottom" secondItem="W7w-wm-Ehq" secondAttribute="bottom" constant="4" id="Qvo-5p-Ysq"/>
+                                                <constraint firstItem="W7w-wm-Ehq" firstAttribute="leading" secondItem="KVj-eQ-68z" secondAttribute="leading" constant="12" id="bgs-7t-FyQ"/>
+                                                <constraint firstItem="nIA-y6-zWm" firstAttribute="leading" secondItem="W7w-wm-Ehq" secondAttribute="trailing" constant="8" id="mjH-4e-Wyv"/>
+                                                <constraint firstItem="nIA-y6-zWm" firstAttribute="centerY" secondItem="KVj-eQ-68z" secondAttribute="centerY" id="uwg-w7-neO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="characterImageView" destination="r07-XC-GoY" id="alK-zC-A6M"/>
-                                            <outlet property="nameLabel" destination="Bf1-Dw-JUk" id="OKQ-Ex-hbw"/>
-                                            <segue destination="2ML-2c-K5y" kind="presentation" id="pLE-p0-ESG"/>
+                                            <outlet property="characterImageView" destination="W7w-wm-Ehq" id="mRm-nA-a38"/>
+                                            <outlet property="nameLabel" destination="nIA-y6-zWm" id="h4h-32-QpD"/>
+                                            <segue destination="2ML-2c-K5y" kind="presentation" id="xe1-0Y-19J"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,10 +68,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hUB-mb-z91" secondAttribute="trailing" id="3dV-Tb-JpJ"/>
-                            <constraint firstItem="hUB-mb-z91" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QoU-LC-Com"/>
-                            <constraint firstItem="hUB-mb-z91" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g5M-s7-QbO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hUB-mb-z91" secondAttribute="bottom" id="nEp-t6-kar"/>
+                            <constraint firstItem="9N0-k7-2gw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="E8c-qg-Zqd"/>
+                            <constraint firstItem="9N0-k7-2gw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="koD-d5-WB9"/>
+                            <constraint firstAttribute="trailing" secondItem="9N0-k7-2gw" secondAttribute="trailing" id="pge-5W-3l2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9N0-k7-2gw" secondAttribute="bottom" id="xNP-oG-EFT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Star Wars Characters" id="bhu-TZ-G74"/>
@@ -79,7 +79,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="tableView" destination="hUB-mb-z91" id="prs-Tg-wYD"/>
+                        <outlet property="tableView" destination="9N0-k7-2gw" id="E94-ck-Hjo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
