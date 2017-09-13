@@ -14,22 +14,64 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var mainBackgroundImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var affiliationImageView: UIImageView!
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var affiliationLabel: UILabel!
+    @IBOutlet weak var forceSensitiveLabel: UILabel!
     
     var character: Character?
     
     var panGestureRecognizer: UIPanGestureRecognizer!
+    
+    let dateFormatter: DateFormatter = {
+        
+        let formatter = DateFormatter()
+        
+        formatter.dateStyle = .medium
+        
+        return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let character = character, let imageURL = URL(string: character.profilePictureLink!) {
+            
+            //Profile Image
             mainBackgroundImage.kf.setImage(with: imageURL)
             mainBackgroundImage.heroID = character.profilePictureLink!
+            
+            //Name
             nameLabel.text = character.firstName! + " " + character.lastName!
             nameLabel.heroID = character.firstName!+character.lastName!
+            
+            //Affiliation Image
             affiliationImageView.image = UIImage(named: character.affiliationString!)
             affiliationImageView.heroModifiers = [.fade, .translate(x: 0, y: 150, z: 0), .duration(0.6)]
-            view.heroModifiers = [.fade]
+            
+            //Birthday Label
+            birthdayLabel.text = "Birthday: \(dateFormatter.string(from: character.birthdate! as Date))"
+            birthdayLabel.heroModifiers = [.translate(x: 0, y: 100, z: 0)]
+            
+            //Affiliation Label
+            var affiliationText = "Affiliation: "
+            switch character.affiliation {
+            case .firstOrder:
+                affiliationText += "First Order"
+            case .jedi:
+                affiliationText += "Jedi"
+            case .resistance:
+                affiliationText += "Resistance"
+            case .sith:
+                affiliationText += "Sith"
+            default:
+                break
+            }
+            affiliationLabel.text = affiliationText
+            affiliationLabel.heroModifiers = [.translate(x: 0, y: 100, z: 0), .delay(0.1)]
+            
+            //Force Sensitive Label
+            forceSensitiveLabel.text = "Force Sensitive: \(String(character.forceSensitive).capitalized)"
+            forceSensitiveLabel.heroModifiers = [.translate(x: 0, y: 100, z: 0), .delay(0.2)]
         }
         
         panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gestureRecognizer:)))
@@ -37,11 +79,6 @@ class CharacterDetailViewController: UIViewController {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func handlePan(gestureRecognizer:UIPanGestureRecognizer) {
         // calculate the progress based on how far the user moved
         let translation = panGestureRecognizer.translation(in: nil)
